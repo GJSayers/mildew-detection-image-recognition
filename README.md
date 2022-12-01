@@ -1,25 +1,4 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
-
-## Gitpod Template Instructions
-
-Welcome,
-
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions. Click the Use this template button to get started.
-
-You can safely delete the Gitpod Template Instructions section of this README.md file,  and modify the remaining paragraphs for your own project. Please do read the Gitpod Template Instructions at least once, though! It contains some important information about Gitpod and the extensions we use. 
-
-## Gitpod Reminders
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
+# Mildew Detection in Cherry Leaves - Image Recognition Project
 
 ## Dataset Content
 * The dataset is sourced from [Kaggle](https://www.kaggle.com/codeinstitute/cherry-leaves). We then created a fictitious user story where predictive analytics can be applied in a real project in the workplace.
@@ -37,22 +16,76 @@ To save time in this process, the IT team suggested an ML system that detects in
 * 2 - The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew.
 
 
-## Hypothesis and how to validate?
-* List here your project hypothesis(es) and how you envision validating it (them).
+## Hypothesis 
+* 1- We suggest that images of Cherry leaves with powdery mildew will have enough differences compared to those without the disease in order to train the model with an image dataset.
+* 2- A company analysis showed that it takes 30 minutes to evaluate a Cherry tree manually for signs of powdery Mildew.  We propose that using image recognition will produce a vast time-benefit for the company and ensure that the detection of mildew is scalable. 
+* 3- Since the sample dataset provided contains images classified into infected vs uninfected, we suggest that binary classification will be the best way to determine the difference between infected and uninftected leaves.  
+
+## Validation of Hypothesis
+* 1- The dataset will be analysed, using test, train and validation techniques to investigate image recognition accuracy.
+* 2- Validation process will be displayed in the dashboad
+* 3- Upload of images to determine infection will be included in the dashboard. 
 
 
 ## The rationale to map the business requirements to the Data Visualisations and ML tasks
-* List your business requirements and a rationale to map them to the Data Visualisations and ML tasks.
+* **Business Requirement 1**: Data Visualization 
+	* We will display the "mean" and "standard deviation" images for infected vs uninfected leaves.
+ 	* We will display the difference between an average infected leaf and an average uninfected leaf.
+	* We will display a image montage for either infected or uninfected leaves.
+
+* **Business Requirement 2**:  Classification
+	* We want to predict if a given leaf is infected or not with powdery mildew. 
+	* We want to build a binary classifier and generate reports.
+
 
 
 ## ML Business Case
-* In the previous bullet, you potentially visualised an ML task to answer a business requirement. You should frame the business case using the method we covered in the course.
+* We want a ML model to predict if a leaf is infected with powdery mildew or not, based on historical image data. It is a supervised model, a 2-class, single-label, classification model.
+* Our ideal outcome is provide the team at Farmy foods a faster method of determining if a plant is infected with powdery mildew or not.
+* The model success metrics are
+	* Accuracy of 65% or above on the test set.
+* The model output is defined as a flag, indicating if the leaf is infected with powdery mildew or not. The farm staff will do the leaf inspection as usual and upload the picture to the App. The prediction is made on the fly (not in batches).
+* Heuristics: The current process is manual verification if a given cherry tree contains powdery mildew. An employee spends around 30 minutes in each tree, taking a few samples of tree leaves and verifying visually if the leaf tree is healthy or has powdery mildew. Currently staff would need to be trained to spot the signs in detail, but with image analysis, sample collection and processing will be quicker and could be performed by staff with less expertise or potentially robotically at scale.
+* The training data to fit the model come from [Kaggle](https://www.kaggle.com/codeinstitute/cherry-leaves). This dataset contains about 4+ thousand images. 
+	* Train data - target: infected or not; features: all images.
 
 
 ## Dashboard Design
-* List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other items, that your dashboard library supports.
-* Finally, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project, you were confident you would use a given plot to display an insight, but later, you chose another plot type).
+## Dashboard Design (Streamlit App User Interface)
 
+### Page 1: Quick Project Summary
+* Quick project summary
+	* General Information
+		* Powdery Mildew is a disease infecting herbaceous and woody plants, and can result in a low fruit yield in the case of Cherry Trees.
+		* The current process is manual verification if a given cherry tree contains powdery mildew. An employee spends around 30 minutes in each tree, taking a few samples of tree leaves and verifying visually if the leaf tree is healthy or has powdery mildew. 
+		* According to the Conneticut Portal:  Powdery mildews are easily recognized by the white, powdery growth of the fungus on infected portions of the plant host. The powdery appearance results from the superficial growth of the fungus as thread-like strands (hyphae) over the plant surface and the production of chains of spores (conidia). Colonies vary in appearance from fluffy and white to sparse and gray. 
+	* Project Dataset
+		* The available dataset contains 2104 out of +4 thousand images taken from images of infected leaves.
+	* Link to additional information
+	* Business requirements
+		*  The client is interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew.
+		*  The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew.
+
+### Page 2: Infected Leaves Visualizer
+* It will answer business requirement 1
+	* Checkbox 1 - Difference between average and variability image
+	* Checkbox 2 - Differences between average infected and average uninfected leaves.
+	* Checkbox 3 - Image Montage
+
+### Page 3: Powdery Mildew Detector
+* Business requirement 2 information - "The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew."
+* Link to download a set of infected and uninfected leaves for live prediction.
+* User Interface with a file uploader widget. The user should upload multiple leaf sample images. It will display the image and a prediction statement, indicating if the leaf is infected or not with powdery mildew and the probability associated with this statement. 
+* Table with image name and prediction results.
+* Download button to download table.
+
+### Page 4: Project Hypothesis and Validation
+* Block for each project hypothesis, describe the conclusion and how it is validated.
+
+### Page 5: ML Performance Metrics
+* Label Frequencies for Train, Validation and Test Sets
+* Model History - Accuracy and Losses
+* Model evaluation result
 
 ## Unfixed Bugs
 * You will need to mention unfixed bugs and why they were unfixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a significant variable for consideration, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed.
@@ -81,7 +114,7 @@ To save time in this process, the IT team suggested an ML system that detects in
 
 ### Content 
 
-- The text for the Home page was taken from Wikipedia Article A.
+- The text for the Home page was taken from [The Connecticut Agricultural Experiment Station](https://portal.ct.gov/CAES/Fact-Sheets/Plant-Pathology/Powdery-Mildew)
 - Instructions on how to implement form validation on the Sign-Up page were taken from [Specific YouTube Tutorial](https://www.youtube.com/).
 - The icons in the footer were taken from [Font Awesome](https://fontawesome.com/).
 
