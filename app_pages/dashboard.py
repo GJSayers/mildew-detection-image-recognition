@@ -12,10 +12,10 @@ class DashBoard:
 
         st.set_page_config(
             page_title=self.app_name,
-            page_icon=":fallen_leaf:"
+            page_icon="🍂"
         )
 
-    def app_page(self, title, func) -> None:
+    def add_page(self, title, func) -> None:
         """ Appends title"""
         self.pages.append({"title": title, "function": func})
 
@@ -25,3 +25,4 @@ class DashBoard:
         page = st.sidebar.radio('Menu', self.pages,
                                 format_func=lambda page: page['title'])
         page['function']()
+        
