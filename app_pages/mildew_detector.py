@@ -17,8 +17,8 @@ def mildew_detector_content():
     """
     st.write("### Mildew Detector")
     st.info(
-        f"* The client is interested in conducting a study to visually differentiate a healthy \n"
-        f"cherry leaf from one with powdery mildew."
+        f"* The client is interested in conducting a study to visually differentiate a healthy"
+        f"cherry leaf from one with powdery mildew.\n"
         f"* The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew."
         )
 

@@ -13,7 +13,7 @@ def leaf_comparison_content():
     """Contents of Leaf Comparison"""
     st.write("### Leaf Comparison")
     st.info(
-        f"The client is interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew."
+        f"* The client is interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew."
         
     )
     version = 'v1'

@@ -7,7 +7,7 @@ from src.machine_learning.evaluate import load_test_evaluation
 
 def ml_metrics_content():
     """Contents of ML Metrics"""
-    st.write("ML Metrics")
+    st.write("### ML Metrics")
     version = 'v1'
 
     st.write("### Train, Validation and Test Set: Labels Frequencies")
@@ -17,7 +17,7 @@ def ml_metrics_content():
     st.write("---")
 
 
-    st.write("### Model History")
+    st.write("## Model History")
     col1, col2 = st.beta_columns(2)
     with col1: 
         model_acc = plt.imread(f"outputs/{version}/model_training_acc.png")
